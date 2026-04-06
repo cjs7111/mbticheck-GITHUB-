@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeMe - MBTI 성격 테스트</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 랜딩 페이지 -->
+    <div id="landing" class="page active">
+        <div class="landing-container">
+            <div class="landing-content">
+                <h1 class="landing-title">TypeMe</h1>
+                <p class="landing-subtitle">타입미</p>
+                <p class="landing-description">
+                    쉽고 재미있게 나의 성격 유형을 발견하고,<br>
+                    유명인과 비교해보는 성격 테스트 플랫폼
+                </p>
+                <button class="cta-button" onclick="startTest()">테스트 시작하기</button>
+                
+                <div class="preview-section">
+                    <h3>🌟 인기 테스트 결과</h3>
+                    <div class="preview-cards">
+                        <div class="preview-card">
+                            <p class="preview-type">ENFP</p>
+                            <p class="preview-title">자유로운 영혼</p>
+                        </div>
+                        <div class="preview-card">
+                            <p class="preview-type">INFJ</p>
+                            <p class="preview-title">선지자</p>
+                        </div>
+                        <div class="preview-card">
+                            <p class="preview-type">INTJ</p>
+                            <p class="preview-title">건축가</p>
+                        </div>
+                        <div class="preview-card">
+                            <p class="preview-type">ESFP</p>
+                            <p class="preview-title">연예인</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 테스트 진행 페이지 -->
+    <div id="test" class="page">
+        <div class="test-container">
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+            <p class="progress-text"><span id="currentQuestion">1</span> / 10</p>
+            
+            <div class="question-card">
+                <h2 id="questionText"></h2>
+                <div class="options">
+                    <button class="option-btn" id="optionA" onclick="selectOption('A')"></button>
+                    <button class="option-btn" id="optionB" onclick="selectOption('B')"></button>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="nav-button" id="prevBtn" onclick="previousQuestion()" disabled>이전</button>
+                <button class="nav-button" id="nextBtn" onclick="nextQuestion()" disabled>다음</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 결과 페이지 -->
+    <div id="result" class="page">
+        <div class="result-container">
+            <div class="result-header">
+                <h1 class="result-title">당신의 성격 유형</h1>
+                <p id="resultType" class="result-type">ENFP</p>
+            </div>
+
+            <div class="result-content">
+                <div class="personality-section">
+                    <h3 id="resultName"></h3>
+                    <p id="resultDescription"></p>
+                </div>
+
+                <div class="compatibility-section">
+                    <div class="compatibility-group">
+                        <h4>👍 잘 맞는 유형</h4>
+                        <p id="compatibleType"></p>
+                    </div>
+                    <div class="compatibility-group">
+                        <h4>👎 안 맞는 유형</h4>
+                        <p id="incompatibleType"></p>
+                    </div>
+                </div>
+
+                <div class="celebrity-section">
+                    <h4>⭐ 같은 유형 유명인</h4>
+                    <div id="celebrityList" class="celebrity-list"></div>
+                </div>
+            </div>
+
+            <div class="share-section">
+                <button class="share-button" onclick="shareResult()">공유하기</button>
+                <button class="restart-button" onclick="restartTest()">다시 테스트하기</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
